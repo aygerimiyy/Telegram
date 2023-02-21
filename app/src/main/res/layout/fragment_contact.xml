@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactFragment">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/contact_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+   <ImageView
+       android:id="@+id/iv_contact"
+       android:layout_width="48dp"
+       android:layout_height="48dp"
+       android:src="@drawable/ic_people"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/contact_toolbar"
+       android:layout_marginStart="16dp"
+       android:layout_marginTop="16dp"
+       android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_contact_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/iv_contact"
+        android:text="Создать группу"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/iv_contact"/>
+
+    <ImageView
+        android:id="@+id/iv_padlock"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_padlock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_contact"
+        android:layout_marginStart="16dp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_padlock_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/iv_padlock"
+        android:text="Создать Секретный Чат"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/iv_padlock"/>
+
+
+    <ImageView
+        android:id="@+id/iv_loud"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_loud_speaker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_padlock"
+        android:layout_marginStart="16dp"
+        android:padding="8dp"
+        app:tint="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_loud_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/iv_loud"
+        android:text="Создать Канал"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/iv_loud"/>
+
+    <ImageView
+        android:id="@+id/iv_location"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_loud"
+        android:layout_marginStart="16dp"
+        android:padding="8dp"
+        app:tint="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_location_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/iv_location"
+        android:text="Найти Людей Рядом"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/iv_location"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_parts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_location"
+        android:text="Сортировка по Времени Входа"
+        android:textSize="16dp"
+        android:layout_margin="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/nested_scrollView"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scrollView"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_parts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view_contact"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:layout_editor_absoluteX="0dp"
+                tools:listitem="@layout/item_contact"
+                tools:ignore="MissingConstraints"
+                app:layout_anchorGravity="center" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+        <ImageView
+            android:id="@+id/back_contact"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_sozdat_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="30dp"
+            android:padding="8dp"
+            android:text="Создать..."
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/back_contact"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_search_contact"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="16sp"
+            android:padding="8dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintEnd_toStartOf="@id/iv_sort"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+
+        <ImageView
+            android:id="@+id/iv_sort"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="16sp"
+            android:padding="8dp"
+            android:src="@drawable/ic_sort"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_person_add"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
